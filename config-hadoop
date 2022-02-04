@@ -10,10 +10,10 @@ export YARN_HOME=$HADOOP_INSTALL
 export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_INSTALL/lib/native
 export HADOOP_OPTS=”-Djava.library.path=$HADOOP_INSTALL/lib”
 
-# edit core-site.xml
+# edit env
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 
-# mapred-site.xml
+# core-site.xml
 <property>
 <name>hadoop.tmp.dir</name>
 <value>/home/amrit/hadoop-3.1.4/tmp</value>
@@ -27,6 +27,16 @@ scheme and authority determine the FileSystem implementation. The
 uri's scheme determines the config property (fs.SCHEME.impl) naming
 the FileSystem implementation class. The uri's authority is used to
 determine the host, port, etc. for a filesystem.</description>
+</property>
+
+# mapred-site.xml
+<property>
+<name>mapred.job.tracker</name>
+<value>localhost:54311</value>
+<description>The host and port that the MapReduce job tracker runs
+at. If "local", then jobs are run in-process as a single map
+and reduce task.
+</description>
 </property>
 
 # hdfs-site.xml
